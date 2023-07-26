@@ -2,7 +2,9 @@ import React from 'react';
 import {NavBar} from './components/layout/NavBar/NavBar'
 import {Footer} from './components/layout/Footer/Footer'
 import {SelectionBar} from './components/layout/SelectionBar/SelectionBar'
-import { Grid, GridItem, Text } from '@chakra-ui/react';
+import {GeneratedSummary} from './components/layout/GeneratedSummary/GeneratedSummary'
+import {Prompt} from './components/layout/Prompt/Prompt'
+import { Grid, GridItem, Text, VStack,StackDivider  } from '@chakra-ui/react';
 
 export const App: React.FC = () => {
   return (
@@ -23,8 +25,15 @@ export const App: React.FC = () => {
             <div className="page-layout__content">
               <Text pb="10" fontSize='5xl' color='black'>Generate anti-misinformation messages</Text>
             </div>
-            <SelectionBar/>
-
+            
+            <VStack
+              spacing={4}
+              align='stretch'
+            >
+              <SelectionBar/>
+              <GeneratedSummary/>
+              <Prompt/>
+            </VStack>
           </GridItem>
           <GridItem pl="2" area="footer">
             <Footer />
