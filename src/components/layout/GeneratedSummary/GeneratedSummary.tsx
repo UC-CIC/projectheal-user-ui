@@ -20,6 +20,7 @@ export const GeneratedSummary = () => {
                     <Tag size="sm" key="sm" variant='subtle' colorScheme='cyan'>
                         <TagLabel>General public</TagLabel>
                     </Tag>  
+                    //
                     &nbsp;&nbsp;&nbsp;
                     <Tag size="sm" key="sm" variant='subtle' colorScheme='yellow'>
                         <TagLabel>Twitter</TagLabel>
