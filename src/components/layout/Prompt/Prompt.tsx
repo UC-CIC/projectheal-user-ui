@@ -18,7 +18,7 @@ const lorem:string="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
 
 
 export const Prompt = () => {
-    const [promptResponse, setPromptResponse] = useState(lorem);
+    const [inputPrompt, setInputPrompt] = useState("");
 
 
     //updates to pull via React Query
@@ -48,13 +48,11 @@ export const Prompt = () => {
         onSuccess: () => console.log("posted"),
     });
 
-    const defaultPromptResponse = promptData && promptData.length > 0 ? promptData[0] : lorem;
-
     useEffect(() => {
         //baseline message
         const response = managePrompt(
             {
-                counteract:["Only gay men can get Covid"],
+                counteract:["Only gay men can get Mpox"],
                 audiences:["General Public"],
                 platforms:["Twitter"],
                 mode:"baseline",
@@ -73,21 +71,41 @@ export const Prompt = () => {
             <Loader />
         </Stack>
         );
-    
+
+    const handleInputChange = (event:any) => {
+        // Update the state with the new input value
+        setInputPrompt(event.target.value);
+    };
+    const handleClick = () => {
+        const promptPayload = {
+            counteract:["Only gay men can get Mpox"],
+            audiences:["General Public"],
+            platforms:["Twitter"],
+            mode:"update",
+            previousPrompt:promptData && promptData.length > 0 ? promptData[0] : lorem,
+            prompt:inputPrompt          
+        }
+        console.log(promptPayload);
+        managePrompt(promptPayload);
+    };
+
+
 
     return (
         <> 
             <Container maxW='800px'>
                 <Box >
-                    <Textarea height="150px" size="lg" isReadOnly variant="filled" value={defaultPromptResponse } />
+                    <Textarea height="150px" size="lg" isReadOnly variant="filled" value={promptData && promptData.length > 0 ? promptData[0] : lorem } />
                     <InputGroup size='md'>
                         <Input
                             pr='4.5rem'
                             placeholder='Ex: Use a friendly tone at a 7th grade reading level, with a 200-400 word count.'
+                            value={inputPrompt}
+                            onChange={handleInputChange}
                         />
                         <InputRightElement width='4.5rem'>
-                            <Button h='1.75rem' size='sm'>
-                             Go
+                            <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                Go
                             </Button>
                         </InputRightElement>
                     </InputGroup>
