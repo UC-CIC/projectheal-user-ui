@@ -5,8 +5,8 @@ import {
     Box,
     Tag,TagLabel
   } from '@chakra-ui/react'
-  import { DownloadIcon,SmallAddIcon } from '@chakra-ui/icons'
-  import { ReactNode } from 'react'
+import { DownloadIcon,SmallAddIcon } from '@chakra-ui/icons'
+
 
 export const GeneratedSummary = () => {
     return (
@@ -17,12 +17,11 @@ export const GeneratedSummary = () => {
             </Flex>
             <Flex alignItems={'center'} justifyContent={'space-between'}>
                 <Box>
-                    <Tag size="sm" key="sm" variant='subtle' colorScheme='cyan'>
+                    <Tag size="sm" key="sm-audience" variant='subtle' colorScheme='cyan'>
                         <TagLabel>General public</TagLabel>
                     </Tag>  
-                    //
                     &nbsp;&nbsp;&nbsp;
-                    <Tag size="sm" key="sm" variant='subtle' colorScheme='yellow'>
+                    <Tag size="sm" key="sm-target" variant='subtle' colorScheme='yellow'>
                         <TagLabel>Twitter</TagLabel>
                     </Tag>  
                 </Box>

@@ -13,7 +13,9 @@ const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

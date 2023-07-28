@@ -6,7 +6,17 @@ import {GeneratedSummary} from './components/layout/GeneratedSummary/GeneratedSu
 import {Prompt} from './components/layout/Prompt/Prompt'
 import { Grid, GridItem, Text, VStack,StackDivider  } from '@chakra-ui/react';
 
+
 export const App: React.FC = () => {
+  const promptData = {
+      "counteract":["Only gay men can get Covid"],
+      "audiences":["General Public"],
+      "platforms":["Twitter"],
+      "mode":"baseline",
+      "previous_prompt":"",
+      "prompt":""
+  }
+  
   return (
     <>
       <Grid

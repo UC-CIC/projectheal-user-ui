@@ -10,7 +10,7 @@ export const SelectionBar = () => {
                 <Box bg='gray.100'>
                     Message should counter all of the following:
                     <br/>
-                    <Tag size="sm" key="sm" variant='subtle' colorScheme='pink'>
+                    <Tag size="sm" key="sm-msg" variant='subtle' colorScheme='pink'>
                         <TagLabel>Only gay men can get Mpox</TagLabel>
                         <TagCloseButton />
                     </Tag>  
@@ -18,7 +18,7 @@ export const SelectionBar = () => {
                 <Box bg='gray.100'>
                 To:
                 <br/>
-                    <Tag size="sm" key="sm" variant='subtle' colorScheme='cyan'>
+                    <Tag size="sm" key="sm-audience" variant='subtle' colorScheme='cyan'>
                         <TagLabel>General public</TagLabel>
                         <TagCloseButton />
                     </Tag>  
@@ -26,7 +26,7 @@ export const SelectionBar = () => {
                 <Box bg='gray.100'>
                     On:
                     <br/>
-                    <Tag size="sm" key="sm" variant='subtle' colorScheme='yellow'>
+                    <Tag size="sm" key="sm-target" variant='subtle' colorScheme='yellow'>
                         <TagLabel>Twitter</TagLabel>
                         <TagCloseButton />
                     </Tag>                     
