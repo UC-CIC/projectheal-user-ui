@@ -78,7 +78,7 @@ export const Prompt = () => {
     };
     const handleClick = () => {
         const promptPayload = {
-            counteract:["Only gay men can get Mpox"],
+            counteract:["Only gay men can get Covid"],
             audiences:["General Public"],
             platforms:["Twitter"],
             mode:"update",
