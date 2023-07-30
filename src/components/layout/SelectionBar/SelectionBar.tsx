@@ -5,7 +5,7 @@ import {
 
 export const SelectionBar = () => {
     return (
-        <Box bg='gray.100' pr='55' pb='15' pt='15' border='1px' borderColor='gray.400'>
+        <Box height="100%" bg='gray.100' pr='55' pb='15' pt='15' border='1px' borderColor='gray.400'>
             <Flex pl="10" pr="10" h={16} alignItems={'center'} justifyContent={'space-between'}>
                 <Box bg='gray.100'>
                     Message should counter all of the following:

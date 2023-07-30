@@ -4,8 +4,8 @@ import {Footer} from './components/layout/Footer/Footer'
 import {SelectionBar} from './components/layout/SelectionBar/SelectionBar'
 import {GeneratedSummary} from './components/layout/GeneratedSummary/GeneratedSummary'
 import {Prompt} from './components/layout/Prompt/Prompt'
-import { Grid, GridItem, Text, VStack,StackDivider  } from '@chakra-ui/react';
-
+import { Grid, GridItem, Text, VStack,HStack,Container  } from '@chakra-ui/react';
+import {SideBar} from './components/layout/SideBar/SideBar'
 
 export const App: React.FC = () => {
   const promptData = {
@@ -36,16 +36,23 @@ export const App: React.FC = () => {
               <Text pb="10" fontSize='5xl' color='black'>Generate anti-misinformation messages</Text>
             </div>
             
-            <VStack
-              spacing={4}
-              align='stretch'
-            >
-              <SelectionBar/>
-              <GeneratedSummary/>
-              <Prompt/>
-            </VStack>
+            <HStack alignItems="flex-start" height="100%">
+                <VStack
+                spacing={4}
+                align='stretch'
+                width="70%"
+              >
+                <SelectionBar/>
+                <GeneratedSummary/>
+                <Prompt/>
+                </VStack>
+              <Container height="100%" width="30%">
+                <SideBar/>
+              </Container>
+            </HStack>
+           
           </GridItem>
-          <GridItem pl="2" area="footer">
+          <GridItem area="footer">
             <Footer />
           </GridItem>
         </Grid>
