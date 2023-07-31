@@ -14,6 +14,9 @@ import {
   } from '@chakra-ui/react'
 
 import {AddIcon,ChevronDownIcon} from '@chakra-ui/icons'
+import { AddThreats } from '../Modals/AddThreats'
+import { AddAudiences } from '../Modals/AddAudiences'
+import { AddPlatforms } from '../Modals/AddPlatforms'
 
 export const SideBar = () => {
     const { isOpen:threatIsOpen, onOpen:threatOnOpen, onClose:threatOnClose  } = useDisclosure()
@@ -43,62 +46,10 @@ export const SideBar = () => {
                 </Flex>
             </Box>
 
+            <AddThreats isOpen={threatIsOpen} onClose={threatOnClose} />
+            <AddAudiences isOpen={audienceIsOpen} onClose={audienceOnClose} />
+            <AddPlatforms isOpen={platformIsOpen} onClose={platformOnClose} />
 
-            <Modal size='xl' isOpen={threatIsOpen} onClose={threatOnClose}>
-                <ModalOverlay />
-                <ModalContent>
-                <ModalHeader>Threat</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                    Lorem ipsum lorem ipsum.
-                </ModalBody>
-
-                <ModalFooter>
-                    <Button colorScheme='blue' mr={3} onClick={threatOnClose}>
-                    Close
-                    </Button>
-                    <Button variant='ghost'>Secondary Action</Button>
-                </ModalFooter>
-                </ModalContent>
-            </Modal>
-
-
-            <Modal size='xl' isOpen={audienceIsOpen} onClose={audienceOnClose}>
-                <ModalOverlay />
-                <ModalContent>
-                <ModalHeader>Audience</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                    Lorem ipsum lorem ipsum.
-                </ModalBody>
-
-                <ModalFooter>
-                    <Button colorScheme='blue' mr={3} onClick={audienceOnClose}>
-                    Close
-                    </Button>
-                    <Button variant='ghost'>Secondary Action</Button>
-                </ModalFooter>
-                </ModalContent>
-            </Modal>
-
-
-            <Modal size='xl' isOpen={platformIsOpen} onClose={platformOnClose}>
-                <ModalOverlay />
-                <ModalContent>
-                <ModalHeader>Platform</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                    Lorem ipsum lorem ipsum.
-                </ModalBody>
-
-                <ModalFooter>
-                    <Button colorScheme='blue' mr={3} onClick={platformOnClose}>
-                    Close
-                    </Button>
-                    <Button variant='ghost'>Secondary Action</Button>
-                </ModalFooter>
-                </ModalContent>
-            </Modal>
         </>
     );
 };
