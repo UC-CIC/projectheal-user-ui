@@ -27,6 +27,7 @@ export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose })  => 
     const [threats, setThreats] = useState(["Only gay men can get Mpox."]);
     const [isError,setIsError] = useState("");
 
+    const errorMsg = "You attempted to remove your only active threat. You must have at least one active threat selected."
     const preStagedThreats = ["Only gay men can get Mpox.", "The Mpox virus is now airborne.", "Mpox is a form of herpes."]
     
     const handleThreatAdd = (threat:string, isActive: boolean) => {
@@ -40,8 +41,7 @@ export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose })  => 
       } else {
         const updatedArray = curSelThreats.filter(e => e !== threat)
         if( updatedArray.length === 0 ){
-          console.log("error");
-          setIsError("You must have one active threat.")
+          setIsError(errorMsg)
           isActive = !isActive;
         }else{
           setIsError("")
@@ -54,15 +54,21 @@ export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose })  => 
       console.log("Threats State: ", threats)
     }, [threats])
 
+    // Custom onClose handler
+    const handleCloseModal = () => {
+      setIsError(""); // Set the custom state variable
+      onClose(); // Execute the original onClose function from useDisclosure
+    };
+
     return ( 
       <>
-            <Modal size='xl' isOpen={isOpen} onClose={onClose}>
+            <Modal size='xl' isOpen={isOpen} onClose={handleCloseModal}>
                 <ModalOverlay />
                 <ModalContent>
                 <ModalHeader>Select threats to add</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    Lorem ipsum lorem ipsum.
+                    Please select a box.
                     <Box height="100%" bg='gray.100' pr='15' pl='15' pb='15' pt='15' border='1px' borderColor='gray.400'>
                       <HStack align='stretch'>
                       <Flex align="center" justify="center"><ChevronLeftIcon/></Flex>
@@ -84,7 +90,7 @@ export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose })  => 
                 </ModalBody>
 
                 <ModalFooter>
-                    <Button colorScheme='blue' mr={3} onClick={onClose}>
+                    <Button colorScheme='blue' mr={3} onClick={handleCloseModal}>
                     Close
                     </Button>
                 </ModalFooter>

@@ -45,7 +45,7 @@ export const Prompt = () => {
         if (!data && error) throw error;
         return data;
         },
-        onSuccess: () => console.log("posted"),
+        onSuccess: () => console.log("Bedrock API Call"),
     });
 
     useEffect(() => {
