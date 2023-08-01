@@ -29,7 +29,7 @@ export const AddAudiences: React.FC<AudiencesModalProps> = ({ isOpen, onClose,au
     const [isError,setIsError] = useState("");
 
     const errorMsg = "You attempted to remove your only active audience. You must have at least one active audience selected."
-    const preStagedAudiences = ["General Public", "Adult", "Friend"]
+    const preStagedAudiences = ["General Public", "Elderly", "Child"]
     
     const handleAudienceAdd = (audience:string, isActive: boolean) => {
       const curSelAudiences = [...audiences];

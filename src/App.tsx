@@ -10,12 +10,12 @@ import {SideBar} from './components/layout/SideBar/SideBar'
 
 export const App: React.FC = () => {
 
-  const [threats, setThreats] = useState(["Only gay men can get Mpox."]);
+  const [threats, setThreats] = useState(["Only gay men can get Covid."]);
   const [platforms, setPlatforms] = useState(["Twitter"]);
   const [audiences, setAudiences] = useState(["General Public"]);
 
   const promptData = {
-      "counteract":["Only gay men can get Covid"],
+      "counteract":["Only gay men can get Covid."],
       "audiences":["General Public"],
       "platforms":["Twitter"],
       "mode":"baseline",

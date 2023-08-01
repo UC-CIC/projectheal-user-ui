@@ -29,7 +29,7 @@ export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose,threats
     const [isError,setIsError] = useState("");
 
     const errorMsg = "You attempted to remove your only active threat. You must have at least one active threat selected."
-    const preStagedThreats = ["Only gay men can get Mpox.", "The Mpox virus is a common cold.", "Mpox is a form of herpes."]
+    const preStagedThreats = ["Only gay men can get Covid.", "Bleach cures Covid.", "Covid is a form of herpes."]
     
     const handleThreatAdd = (threat:string, isActive: boolean) => {
       const curSelThreats = [...threats];
