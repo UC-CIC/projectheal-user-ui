@@ -20,11 +20,13 @@ import { ThreatCard } from "./Cards/ThreatCard";
 interface ThreatModalProps {
   isOpen: boolean;
   onClose: () => void;
+  threats: string[];
+  setThreats: React.Dispatch<React.SetStateAction<string[]>>;  
 }
 
 
-export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose })  => {
-    const [threats, setThreats] = useState(["Only gay men can get Mpox."]);
+export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose,threats,setThreats })  => {
+    //const [threats, setThreats] = useState(["Only gay men can get Mpox."]);
     const [isError,setIsError] = useState("");
 
     const errorMsg = "You attempted to remove your only active threat. You must have at least one active threat selected."

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavBar} from './components/layout/NavBar/NavBar'
 import {Footer} from './components/layout/Footer/Footer'
 import {SelectionBar} from './components/layout/SelectionBar/SelectionBar'
@@ -16,7 +16,8 @@ export const App: React.FC = () => {
       "previous_prompt":"",
       "prompt":""
   }
-  
+  const [threats, setThreats] = useState<string[]>(["Only gay men can get Mpox."]);
+
   return (
     <>
       <Grid
@@ -47,7 +48,10 @@ export const App: React.FC = () => {
                 <Prompt/>
                 </VStack>
               <Container height="100%" width="30%">
-                <SideBar/>
+                <SideBar 
+                  threats={threats} 
+                  setThreats={setThreats} 
+                />
               </Container>
             </HStack>
            

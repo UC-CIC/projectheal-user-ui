@@ -12,7 +12,7 @@ export const GeneratedSummary = () => {
     return (
         <>
             <Flex alignItems={'center'} justifyContent={'space-between'}>
-                <Box><Text pb="10" fontSize='4xl' color='black'>Generate anti-misinformation messages</Text></Box>
+                <Box><Text pb="10" fontSize='4xl' color='black'>Generated messages</Text></Box>
                 <Box><Button colorScheme='blue'>Download All &nbsp;<DownloadIcon/> </Button></Box>
             </Flex>
             <Flex alignItems={'center'} justifyContent={'space-between'}>

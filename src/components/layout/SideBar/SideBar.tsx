@@ -4,13 +4,6 @@ import {
     Button,
 
     useDisclosure,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalCloseButton,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
   } from '@chakra-ui/react'
 
 import {AddIcon,ChevronDownIcon} from '@chakra-ui/icons'
@@ -18,7 +11,14 @@ import { AddThreats } from '../Modals/AddThreats'
 import { AddAudiences } from '../Modals/AddAudiences'
 import { AddPlatforms } from '../Modals/AddPlatforms'
 
-export const SideBar = () => {
+
+interface SideBarProps {
+    threats: string[];
+    setThreats: React.Dispatch<React.SetStateAction<string[]>>;
+}
+  
+
+export const SideBar: React.FC<SideBarProps> = ( {threats,setThreats} )  => {
     const { isOpen:threatIsOpen, onOpen:threatOnOpen, onClose:threatOnClose  } = useDisclosure()
     const { isOpen:audienceIsOpen, onOpen:audienceOnOpen, onClose:audienceOnClose  } = useDisclosure()
     const { isOpen:platformIsOpen, onOpen:platformOnOpen, onClose:platformOnClose  } = useDisclosure()
@@ -46,7 +46,12 @@ export const SideBar = () => {
                 </Flex>
             </Box>
 
-            <AddThreats isOpen={threatIsOpen} onClose={threatOnClose} />
+            <AddThreats 
+                isOpen={threatIsOpen} 
+                onClose={threatOnClose} 
+                threats={threats} 
+                setThreats={setThreats} 
+            />
             <AddAudiences isOpen={audienceIsOpen} onClose={audienceOnClose} />
             <AddPlatforms isOpen={platformIsOpen} onClose={platformOnClose} />
 
