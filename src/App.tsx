@@ -3,11 +3,17 @@ import {NavBar} from './components/layout/NavBar/NavBar'
 import {Footer} from './components/layout/Footer/Footer'
 import {SelectionBar} from './components/layout/SelectionBar/SelectionBar'
 import {GeneratedSummary} from './components/layout/GeneratedSummary/GeneratedSummary'
+import {GeneratedSummaryHeader} from './components/layout/GeneratedSummary/GeneratedSummaryHeader'
 import {Prompt} from './components/layout/Prompt/Prompt'
 import { Grid, GridItem, Text, VStack,HStack,Container  } from '@chakra-ui/react';
 import {SideBar} from './components/layout/SideBar/SideBar'
 
 export const App: React.FC = () => {
+
+  const [threats, setThreats] = useState<string[]>(["Only gay men can get Mpox."]);
+  const [platforms, setPlatforms] = useState(["Twitter"]);
+  const [audiences, setAudiences] = useState(["General Public"]);
+
   const promptData = {
       "counteract":["Only gay men can get Covid"],
       "audiences":["General Public"],
@@ -16,7 +22,8 @@ export const App: React.FC = () => {
       "previous_prompt":"",
       "prompt":""
   }
-  const [threats, setThreats] = useState<string[]>(["Only gay men can get Mpox."]);
+
+  const combos = audiences.flatMap(d => platforms.map(v => d + ";"+ v))
 
   return (
     <>
@@ -43,14 +50,33 @@ export const App: React.FC = () => {
                 align='stretch'
                 width="70%"
               >
-                <SelectionBar/>
-                <GeneratedSummary/>
-                <Prompt/>
+                <SelectionBar
+                  threats={threats} 
+                  audiences={audiences}
+                  platforms={platforms}
+                />
+                <GeneratedSummaryHeader/>
+                {combos.map( (combo,index) => {
+                  const targets = combo.split(";");
+                  const promptAudience=targets[0];
+                  const promptPlatform=targets[1]
+                  return(
+                    <div key={`key-${index}`}>
+                      <GeneratedSummary promptAudience={promptAudience} promptPlatform={promptPlatform}/>
+                      <Prompt promptCounteract={threats} promptAudience={promptAudience} promptPlatform={promptPlatform}/>
+                    </div>
+                  )
+                })}
+
                 </VStack>
               <Container height="100%" width="30%">
                 <SideBar 
                   threats={threats} 
-                  setThreats={setThreats} 
+                  setThreats={setThreats}
+                  audiences={audiences}
+                  setAudiences={setAudiences}
+                  platforms={platforms}
+                  setPlatforms={setPlatforms}
                 />
               </Container>
             </HStack>

@@ -26,7 +26,6 @@ interface ThreatModalProps {
 
 
 export const AddThreats: React.FC<ThreatModalProps> = ({ isOpen, onClose,threats,setThreats })  => {
-    //const [threats, setThreats] = useState(["Only gay men can get Mpox."]);
     const [isError,setIsError] = useState("");
 
     const errorMsg = "You attempted to remove your only active threat. You must have at least one active threat selected."

@@ -5,24 +5,26 @@ import {
     Box,
     Tag,TagLabel
   } from '@chakra-ui/react'
+import React from "react"
 import { DownloadIcon,SmallAddIcon } from '@chakra-ui/icons'
 
+interface GeneratedSummaryProps {
+    promptAudience: string;
+    promptPlatform: string;
+}
 
-export const GeneratedSummary = () => {
+export const GeneratedSummary: React.FC<GeneratedSummaryProps> = ({promptAudience,promptPlatform}) => { 
+
     return (
         <>
             <Flex alignItems={'center'} justifyContent={'space-between'}>
-                <Box><Text pb="10" fontSize='4xl' color='black'>Generated messages</Text></Box>
-                <Box><Button colorScheme='blue'>Download All &nbsp;<DownloadIcon/> </Button></Box>
-            </Flex>
-            <Flex alignItems={'center'} justifyContent={'space-between'}>
                 <Box>
                     <Tag size="sm" key="sm-audience" variant='subtle' colorScheme='cyan'>
-                        <TagLabel>General public</TagLabel>
+                        <TagLabel>{promptAudience}</TagLabel>
                     </Tag>  
                     &nbsp;&nbsp;&nbsp;
                     <Tag size="sm" key="sm-target" variant='subtle' colorScheme='yellow'>
-                        <TagLabel>Twitter</TagLabel>
+                        <TagLabel>{promptPlatform}</TagLabel>
                     </Tag>  
                 </Box>
             </Flex>            

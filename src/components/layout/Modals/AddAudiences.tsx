@@ -20,11 +20,12 @@ import { ThreatCard } from "./Cards/ThreatCard";
 interface AudiencesModalProps {
   isOpen: boolean;
   onClose: () => void;
+  audiences: string[];
+  setAudiences: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 
-export const AddAudiences: React.FC<AudiencesModalProps> = ({ isOpen, onClose })  => {
-    const [audiences, setAudiences] = useState(["General Public"]);
+export const AddAudiences: React.FC<AudiencesModalProps> = ({ isOpen, onClose,audiences,setAudiences })  => {
     const [isError,setIsError] = useState("");
 
     const errorMsg = "You attempted to remove your only active audience. You must have at least one active audience selected."

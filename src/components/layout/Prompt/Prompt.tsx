@@ -7,7 +7,7 @@ import {
     Container,
     Button,Stack
   } from '@chakra-ui/react'
-import { useState,useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useMutation } from 'react-query';
 import Loader from '../../Loader/Loader';
 import {
@@ -16,8 +16,14 @@ import {
 
 const lorem:string="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
+interface promptProps {
+    promptCounteract:string[],
+    promptAudience:string,
+    promptPlatform:string,
+  }
 
-export const Prompt = () => {
+  
+export const Prompt: React.FC<promptProps> = ({promptCounteract,promptAudience,promptPlatform}) => { 
     const [inputPrompt, setInputPrompt] = useState("");
 
 
@@ -48,19 +54,21 @@ export const Prompt = () => {
         onSuccess: () => console.log("Bedrock API Call"),
     });
 
+
     useEffect(() => {
         //baseline message
         const response = managePrompt(
             {
-                counteract:["Only gay men can get Mpox"],
-                audiences:["General Public"],
-                platforms:["Twitter"],
+                counteract:promptCounteract,
+                audiences:[promptAudience],
+                platforms:[promptPlatform],
                 mode:"baseline",
                 previousPrompt:"",
                 prompt:""
             }
         );
     }, [])
+
 
 
     const isLoading = isUpdating;
@@ -78,9 +86,9 @@ export const Prompt = () => {
     };
     const handleClick = () => {
         const promptPayload = {
-            counteract:["Only gay men can get Covid"],
-            audiences:["General Public"],
-            platforms:["Twitter"],
+            counteract:promptCounteract,
+            audiences:[promptAudience],
+            platforms:[promptPlatform],
             mode:"update",
             previousPrompt:promptData && promptData.length > 0 ? promptData[0] : lorem,
             prompt:inputPrompt          

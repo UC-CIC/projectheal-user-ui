@@ -27,36 +27,6 @@ const Logo = (props: any) => {
   )
 }
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode
-  label: string
-  href: string
-}) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}>
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  )
-}
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -79,49 +49,49 @@ export const Footer = () => {
             <Box>
               <Logo color={useColorModeValue('gray.700', 'white')} />
             </Box>
-            <Text fontSize={'sm'}>© 2022 Chakra Templates. All rights reserved</Text>
+            <Text fontSize={'sm'}>© 2023</Text>
             <Stack direction={'row'} spacing={6}>
                 Lorem ipsum
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
+            <ListHeader>Lorem Ipsum</ListHeader>
             <Box as="a" href={'#'}>
-              About us
+              Ipsum
             </Box>
             <Box as="a" href={'#'}>
-              Blog
+              Ipsum
             </Box>
             <Box as="a" href={'#'}>
-              Contact us
+              Ipsum
             </Box>
             <Box as="a" href={'#'}>
-              Pricing
+              Ipsum
             </Box>
             <Box as="a" href={'#'}>
-              Testimonials
-            </Box>
-          </Stack>
-          <Stack align={'flex-start'}>
-            <ListHeader>Support</ListHeader>
-            <Box as="a" href={'#'}>
-              Help Center
-            </Box>
-            <Box as="a" href={'#'}>
-              Terms of Service
-            </Box>
-            <Box as="a" href={'#'}>
-              Legal
-            </Box>
-            <Box as="a" href={'#'}>
-              Privacy Policy
-            </Box>
-            <Box as="a" href={'#'}>
-              Satus
+              Ipsum
             </Box>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Stay up to date</ListHeader>
+            <ListHeader>Lorem Ipsum</ListHeader>
+            <Box as="a" href={'#'}>
+              Ipsum
+            </Box>
+            <Box as="a" href={'#'}>
+              Ipsum
+            </Box>
+            <Box as="a" href={'#'}>
+              Ipsum
+            </Box>
+            <Box as="a" href={'#'}>
+              Ipsum
+            </Box>
+            <Box as="a" href={'#'}>
+              Ipsum
+            </Box>
+          </Stack>
+          <Stack align={'flex-start'}>
+            <ListHeader>Subscribe</ListHeader>
             <Stack direction={'row'}>
               <Input
                 placeholder={'Your email address'}

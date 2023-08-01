@@ -82,7 +82,7 @@ export const NavBar = () => {
               <Box>
                 <Logo color={useColorModeValue('gray.700', 'white')} />
               </Box>
-              <Box>| &nbsp; &nbsp; Project Heal</Box>
+              <Box>| &nbsp; &nbsp; Anti Misinformation Platform</Box>
             </HStack>
             <Flex alignItems={'center'} >
               <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }} pr={7}>

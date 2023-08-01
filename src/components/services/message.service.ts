@@ -6,6 +6,7 @@ import { ApiResponse } from '../models/api-response';
 const apiServerUrl = process.env.REACT_APP_API_SERVER_URL + '';
 const xtoken = process.env.REACT_APP_X_API_TOKEN + '';
 
+
 export const postPrompt = async (
     counteract:string[],
     audiences:string[],

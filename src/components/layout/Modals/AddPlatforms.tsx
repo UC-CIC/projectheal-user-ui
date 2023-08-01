@@ -23,11 +23,12 @@ import { platform } from "os";
 interface PlatformModalProps {
   isOpen: boolean;
   onClose: () => void;
+  platforms: string[];
+  setPlatforms: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 
-export const AddPlatforms: React.FC<PlatformModalProps> = ({ isOpen, onClose })  => {
-    const [platforms, setPlatforms] = useState(["Twitter"]);
+export const AddPlatforms: React.FC<PlatformModalProps> = ({ isOpen, onClose,platforms,setPlatforms })  => {
     const [isError,setIsError] = useState("");
 
     const errorMsg = "You attempted to remove your only active platform. You must have at least one active platform selected."

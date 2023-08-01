@@ -15,10 +15,14 @@ import { AddPlatforms } from '../Modals/AddPlatforms'
 interface SideBarProps {
     threats: string[];
     setThreats: React.Dispatch<React.SetStateAction<string[]>>;
+    audiences: string[];
+    setAudiences: React.Dispatch<React.SetStateAction<string[]>>;
+    platforms: string[];
+    setPlatforms: React.Dispatch<React.SetStateAction<string[]>>;
 }
   
 
-export const SideBar: React.FC<SideBarProps> = ( {threats,setThreats} )  => {
+export const SideBar: React.FC<SideBarProps> = ( {threats,setThreats,audiences,setAudiences,platforms,setPlatforms} )  => {
     const { isOpen:threatIsOpen, onOpen:threatOnOpen, onClose:threatOnClose  } = useDisclosure()
     const { isOpen:audienceIsOpen, onOpen:audienceOnOpen, onClose:audienceOnClose  } = useDisclosure()
     const { isOpen:platformIsOpen, onOpen:platformOnOpen, onClose:platformOnClose  } = useDisclosure()
@@ -52,8 +56,18 @@ export const SideBar: React.FC<SideBarProps> = ( {threats,setThreats} )  => {
                 threats={threats} 
                 setThreats={setThreats} 
             />
-            <AddAudiences isOpen={audienceIsOpen} onClose={audienceOnClose} />
-            <AddPlatforms isOpen={platformIsOpen} onClose={platformOnClose} />
+            <AddAudiences 
+                isOpen={audienceIsOpen} 
+                onClose={audienceOnClose} 
+                audiences={audiences} 
+                setAudiences={setAudiences} 
+            />
+            <AddPlatforms 
+                isOpen={platformIsOpen} 
+                onClose={platformOnClose}
+                platforms={platforms}
+                setPlatforms={setPlatforms}
+            />
 
         </>
     );
