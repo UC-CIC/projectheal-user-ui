@@ -71,7 +71,7 @@ export const AddPlatforms: React.FC<PlatformModalProps> = ({ isOpen, onClose }) 
                 <ModalHeader>Select platform to add</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    Please select a box.
+                    Please select desired box(es)
                     <Box height="100%" bg='gray.100' pr='15' pl='15' pb='15' pt='15' border='1px' borderColor='gray.400'>
                       <HStack align='stretch'>
                       <Flex align="center" justify="center"><ChevronLeftIcon/></Flex>
