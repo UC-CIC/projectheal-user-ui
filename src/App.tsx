@@ -10,7 +10,7 @@ import {SideBar} from './components/layout/SideBar/SideBar'
 
 export const App: React.FC = () => {
 
-  const [threats, setThreats] = useState<string[]>(["Only gay men can get Mpox."]);
+  const [threats, setThreats] = useState(["Only gay men can get Mpox."]);
   const [platforms, setPlatforms] = useState(["Twitter"]);
   const [audiences, setAudiences] = useState(["General Public"]);
 
@@ -24,6 +24,7 @@ export const App: React.FC = () => {
   }
 
   const combos = audiences.flatMap(d => platforms.map(v => d + ";"+ v))
+  const promptCounteract = threats;
 
   return (
     <>
@@ -63,7 +64,7 @@ export const App: React.FC = () => {
                   return(
                     <div key={`key-${index}`}>
                       <GeneratedSummary promptAudience={promptAudience} promptPlatform={promptPlatform}/>
-                      <Prompt promptCounteract={threats} promptAudience={promptAudience} promptPlatform={promptPlatform}/>
+                      <Prompt promptCounteract={promptCounteract} promptAudience={promptAudience} promptPlatform={promptPlatform}/>
                     </div>
                   )
                 })}

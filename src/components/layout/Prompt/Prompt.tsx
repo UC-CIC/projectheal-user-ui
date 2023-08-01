@@ -67,7 +67,7 @@ export const Prompt: React.FC<promptProps> = ({promptCounteract,promptAudience,p
                 prompt:""
             }
         );
-    }, [])
+    }, [promptCounteract])
 
 
 
