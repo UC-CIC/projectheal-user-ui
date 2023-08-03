@@ -1,3 +1,12 @@
+# Post CDK Deploy
+1. Create an .env file in root and update according to your deploy values.
+```
+REACT_APP_X_API_TOKEN="{KEY_HERE}"
+REACT_APP_API_SERVER_URL="https://{API_URL}.us-east-1.amazonaws.com/prod/api"
+```
+2. npm install
+3. npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
